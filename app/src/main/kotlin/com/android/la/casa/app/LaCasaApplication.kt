@@ -8,5 +8,6 @@ class LaCasaApplication  : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        initKoin { androidContext(this@LaCasaApplication)}}
+        initKoin { androidContext(this@LaCasaApplication)}
+    }
 }
