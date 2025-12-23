@@ -1,4 +1,4 @@
-package com.android.lacasa.ui.theme
+package com.android.la.casa.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme

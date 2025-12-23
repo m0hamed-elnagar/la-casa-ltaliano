@@ -1,4 +1,4 @@
-package com.android.lacasa.ui.theme
+package com.android.la.casa.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
