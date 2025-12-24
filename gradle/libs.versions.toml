@@ -1,6 +1,5 @@
 [versions]
 agp = "8.13.2"
-datastorePreferences = "1.1.7"
 firebaseBom = "34.2.0"
 kotlin = "2.3.0"
 coreKtx = "1.17.0"
@@ -12,13 +11,14 @@ activityCompose = "1.12.2"
 composeBom = "2025.12.01"
 composeNavigation = "2.9.6"
 coroutines = "1.10.2"
-kotlinSerialization = "1.9.0"
-koin = "4.1.0"
-ktor = "3.2.3"
+koin = "4.1.1"
+ktor = "3.3.3"
 coil = "3.3.0"
 room = "2.8.4"
 ksp = "2.2.21-2.0.4"
-material3 = "1.4.0"
+splashScreen = "1.2.0"
+navigation3 = "1.1.0-alpha01"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -41,15 +41,19 @@ androidx-compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "u
 androidx-compose-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-compose-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-compose-material3 = { group = "androidx.compose.material3", name = "material3" }
+#splashscreen
+splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "splashScreen" }
+
 # Navigation
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "composeNavigation" }
+navigation3-runtime ={ group = "androidx.navigation3", name = "navigation3-runtime", version.ref = "navigation3"}
+navigation3-ui = { group = "androidx.navigation3", name = "navigation3-ui", version.ref = "navigation3"}
+
 
 # Coroutines
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines" }
 
-# Serialization
-kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinSerialization" }
 
 # Koin (DI)
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }

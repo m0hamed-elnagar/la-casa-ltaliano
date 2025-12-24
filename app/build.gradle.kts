@@ -35,6 +35,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
+
     kotlin {
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
@@ -104,6 +106,11 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    //splashScreen
+    implementation(libs.splashscreen)
+
+    //navigation3
+    implementation(libs.navigation3.runtime)
+    implementation(libs.navigation3.ui)
 
 }
