@@ -1,4 +1,4 @@
-package com.android.la.casa.domain.models
+package com.appventure.la.casa.domain.models
 
 data class Pizza(
     val id: String,
@@ -7,6 +7,7 @@ data class Pizza(
     val category: PizzaCategory,
     val basePrice: Int,
     val imageUrl: String,
+    val localPath : String?,
     val sizes: Map<PizzaSize, Int>, // incremental price per size
     val defaultToppings: List<ToppingId>,
     val availableToppings: List<ToppingId>,

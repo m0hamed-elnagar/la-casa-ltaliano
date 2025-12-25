@@ -1,7 +1,7 @@
-package com.android.la.casa.app
+package com.appventure.la.casa.app
 
 import android.app.Application
-import com.android.la.casa.di.initKoin
+import com.appventure.la.casa.di.initKoin
 import org.koin.android.ext.koin.androidContext
 
 class LaCasaApplication  : Application() {

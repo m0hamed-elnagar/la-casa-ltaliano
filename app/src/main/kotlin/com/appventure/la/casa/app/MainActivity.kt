@@ -1,4 +1,4 @@
-package com.android.la.casa.app
+package com.appventure.la.casa.app
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

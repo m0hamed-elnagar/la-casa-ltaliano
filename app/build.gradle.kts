@@ -7,13 +7,13 @@ plugins {
 }
 
 android {
-    namespace = "com.kotlin.lacasa"
+    namespace = "com.appventure.la.casa"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.kotlin.lacasa"
+        applicationId = "com.appventure.la.casa"
         minSdk = 27
         targetSdk = 36
         versionCode = 1

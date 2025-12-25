@@ -1,4 +1,4 @@
-package com.android.la.casa.domain.models
+package com.appventure.la.casa.domain.models
 
 data class Order(
     val id: String,

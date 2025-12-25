@@ -1,4 +1,4 @@
-package com.android.la.casa.di
+package com.appventure.la.casa.di
 
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration
