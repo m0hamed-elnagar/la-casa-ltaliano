@@ -1,6 +1,6 @@
 package com.appventure.la.casa.domain.repo
 
-import com.android.la.casa.domain.models.Order
+import com.appventure.la.casa.domain.models.Order
 import kotlinx.coroutines.flow.Flow
 
 interface OrderRepository {
