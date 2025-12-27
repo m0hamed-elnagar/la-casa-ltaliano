@@ -1,7 +1,6 @@
-package com.appventure.la.casa.data.room
+package com.appventure.la.casa.data.room.favpizza
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
@@ -13,7 +12,7 @@ interface FavPizzaDao {
 
     /* ================= INSERT ================= */
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.Companion.REPLACE)
     suspend fun insertFavPizza(favPizza: FavPizzaEntity)
 
     /* ================= DELETE ================= */

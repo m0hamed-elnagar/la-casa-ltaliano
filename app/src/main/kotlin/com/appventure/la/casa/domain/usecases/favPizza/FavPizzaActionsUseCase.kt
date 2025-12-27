@@ -1,4 +1,4 @@
-package com.appventure.la.casa.domain.useCases.favPizza
+package com.appventure.la.casa.domain.usecases.favPizza
 
 import com.appventure.la.casa.domain.models.FavPizza
 import com.appventure.la.casa.domain.repo.FavPizzaRepository

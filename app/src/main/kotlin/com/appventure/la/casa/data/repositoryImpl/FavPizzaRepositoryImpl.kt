@@ -2,7 +2,7 @@ package com.appventure.la.casa.data.repositoryImpl
 
 import com.appventure.la.casa.data.mappers.toDomain
 import com.appventure.la.casa.data.mappers.toEntity
-import com.appventure.la.casa.data.room.FavPizzaDao
+import com.appventure.la.casa.data.room.favpizza.FavPizzaDao
 import com.appventure.la.casa.domain.models.FavPizza
 import com.appventure.la.casa.domain.repo.FavPizzaRepository
 import kotlinx.coroutines.flow.Flow

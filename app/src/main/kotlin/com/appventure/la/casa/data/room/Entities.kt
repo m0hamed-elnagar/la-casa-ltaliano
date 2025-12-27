@@ -41,14 +41,3 @@ data class PizzaSizeEntity(
     val extraPrice: Int   // relative to basePrice
 )
 
-@Entity(
-    tableName = "fav_pizza",
-    primaryKeys = ["id", "pizzaId"]
-)
-data class FavPizzaEntity(
-    val id: String,
-    val pizzaId: String,
-    val toppings : List<String>,
-    val size : String,
-    val lastUpdated: Long // Use System.currentTimeMillis()
-)
