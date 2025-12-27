@@ -31,16 +31,6 @@ interface FavPizzaDao {
     suspend fun updateFavPizza(favPizza: FavPizzaEntity)
 
 
-    @Query("""
-        UPDATE fav_pizza 
-        SET size = :size 
-        WHERE id = :favId
-    """)
-    suspend fun updateSize(
-        favId: String,
-        size: String
-    )
-
     /* ================= READ ================= */
 
     @Query("SELECT * FROM fav_pizza ORDER BY lastUpdated DESC")

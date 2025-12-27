@@ -30,16 +30,6 @@ class FavPizzaRepositoryImpl(
         )
     }
 
-    override suspend fun updateSize(
-        favId: String,
-        size: String
-    ) {
-        favPizzaDao.updateSize(
-            favId = favId,
-            size = size
-        )
-    }
-
     override suspend fun removeFavPizza(
         favId: String
     ) {

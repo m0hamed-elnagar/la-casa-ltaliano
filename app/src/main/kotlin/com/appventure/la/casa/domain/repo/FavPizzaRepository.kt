@@ -13,10 +13,6 @@ interface FavPizzaRepository {
     suspend fun updateFavPizza(
         favPizza: FavPizza
     )
-    suspend fun updateSize(
-        favId: String,
-        size: String
-    )
 
     suspend fun removeFavPizza(favId: String)
 
