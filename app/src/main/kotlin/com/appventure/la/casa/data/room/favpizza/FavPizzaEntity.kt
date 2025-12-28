@@ -8,6 +8,7 @@ import androidx.room.Entity
 )
 data class FavPizzaEntity(
     val id: String,
+    val userId: String,  // so u can have multiple users  preference in the app
     val pizzaId: String,
     val toppings : List<String>,
     val size : String,

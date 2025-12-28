@@ -1,6 +1,6 @@
 package com.appventure.la.casa.data.mappers
 
-import com.appventure.la.casa.data.room.FavPizzaEntity
+import com.appventure.la.casa.data.room.favpizza.FavPizzaEntity
 import com.appventure.la.casa.domain.models.FavPizza
 
 fun FavPizzaEntity.toDomain(): FavPizza {

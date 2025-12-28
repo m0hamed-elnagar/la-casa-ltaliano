@@ -24,9 +24,9 @@ val sharedModule = module {
     singleOf(::FavPizzaRepositoryImpl)
         .bind<FavPizzaRepository>()
     single { get<LaCasaDatabase>().favPizzaDao }
-
-    single { FavPizzaActionsUseCase(get()) }
-    single { GetFavPizzaByIdUseCase(get()) }
-    single { GetAllFavPizzasUseCase(get()) }
-    single { GetFavPizzasForPizzaUseCase(get()) }
+    //useCases for fav pizzas
+    singleOf(::FavPizzaActionsUseCase)
+    singleOf(::GetFavPizzasForPizzaUseCase)
+    singleOf(::GetFavPizzaByIdUseCase)
+    singleOf(::GetFavPizzaByIdUseCase)
 }

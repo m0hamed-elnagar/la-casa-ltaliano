@@ -3,16 +3,6 @@ package com.appventure.la.casa.data.room
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "toppings")
-data class Topping(
-    @PrimaryKey(autoGenerate = false) val id: String,
-    val name: String,
-    val price: Int,    // In cents (e.g., 100 for $1.00)
-    val inStock: Boolean,
-    val imageUrl: String,
-    val localPath : String?,
-
-    )
 /* ====== Pizza ====== */
 @Entity(tableName = "pizzas")
 data class Pizza(
@@ -30,6 +20,16 @@ data class Pizza(
     val isAvailable: Boolean,
     val lastUpdated: Long
 )
+@Entity(tableName = "toppings")
+data class Topping(
+    @PrimaryKey(autoGenerate = false) val id: String,
+    val name: String,
+    val price: Int,    // In cents (e.g., 100 for $1.00)
+    val inStock: Boolean,
+    val imageUrl: String,
+    val localPath : String?,
+
+    )
 
 @Entity(
     tableName = "pizza_sizes",
@@ -41,3 +41,9 @@ data class PizzaSizeEntity(
     val extraPrice: Int   // relative to basePrice
 )
 
+@Entity(tableName = "menu_metadata")
+data class MenuMetadataEntity(
+    @PrimaryKey val id: Int = 0,          // single row
+    val version: Int,
+    val lastUpdated: Long
+)
