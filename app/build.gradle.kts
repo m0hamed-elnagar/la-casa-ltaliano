@@ -3,17 +3,18 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kotlin.serialization)
 
 }
 
 android {
-    namespace = "com.kotlin.lacasa"
+    namespace = "com.appventure.la.casa"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.kotlin.lacasa"
+        applicationId = "com.appventure.la.casa"
         minSdk = 27
         targetSdk = 36
         versionCode = 1
@@ -35,6 +36,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
+
+
     kotlin {
         compilerOptions {
             jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
@@ -64,13 +67,14 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation("androidx.compose.material:material-icons-extended:1.7.8")
     // Navigation
     implementation(libs.navigation.compose)
     // Coroutines
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
-
-
+    // Serialization
+    implementation(libs.kotlinx.serialization.json)
     // Koin
     implementation(libs.koin.core)
     implementation(libs.koin.android)
@@ -81,6 +85,8 @@ dependencies {
     implementation(libs.firebase.config)
     implementation(libs.firebase.analytics)
     implementation(libs.firebase.crashlytics)
+    implementation(libs.firebase.storage.ktx)
+    implementation(libs.firebase.firestore.ktx)
     // Ktor
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.okhttp)
@@ -104,6 +110,11 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    //splashScreen
+    implementation(libs.splashscreen)
+
+    //navigation3
+    implementation(libs.navigation3.runtime)
+    implementation(libs.navigation3.ui)
 
 }
