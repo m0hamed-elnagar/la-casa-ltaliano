@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "527620536948",
+    "project_id": "lara-8483",
+    "storage_bucket": "lara-8483.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:527620536948:android:6fd257db640e3477d7ef21",
+        "android_client_info": {
+          "package_name": "com.appventure.la.casa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "527620536948-q1osi3rok61fdt1hjdk0ri49ouqegjc4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6NZBNI6HPRddPGiF7_MQ8etMnKa-QP-o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "527620536948-q1osi3rok61fdt1hjdk0ri49ouqegjc4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
