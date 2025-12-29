@@ -7,6 +7,7 @@ fun FavPizzaEntity.toDomain(): FavPizza {
     return FavPizza(
         id = id,
         pizzaId = pizzaId,
+        userId = userId,
         toppings = toppings,
         size = size,
         lastUpdated = lastUpdated
@@ -15,6 +16,7 @@ fun FavPizzaEntity.toDomain(): FavPizza {
 fun FavPizza.toEntity(): FavPizzaEntity {
     return FavPizzaEntity(
         id = id,
+        userId = userId,
         pizzaId = pizzaId,
         toppings = toppings,
         size = size,

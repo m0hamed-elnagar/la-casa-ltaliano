@@ -7,13 +7,13 @@ import com.appventure.la.casa.domain.models.Topping
 import com.appventure.la.casa.domain.models.ToppingId
 import kotlinx.coroutines.flow.Flow
 
-interface MenuRepository {
+interface PizzaRepository {
 
     /* All pizzas, alphabetically within category, highest priority first */
     fun observePizzas(category: PizzaCategory? = null): Flow<List<Pizza>>
 
     /* Single pizza (detail screen) */
-    fun observePizza(id: String): Flow<Pizza?>
+     fun getPizzaDetails(id: String): Flow<Pizza?>
 
     /* All available toppings (for customisation screen) */
     fun observeToppings(): Flow<List<Topping>>

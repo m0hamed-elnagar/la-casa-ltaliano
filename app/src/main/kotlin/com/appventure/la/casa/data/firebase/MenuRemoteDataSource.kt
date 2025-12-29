@@ -1,35 +1,54 @@
 package com.appventure.la.casa.data.firebase
 
-import com.appventure.la.casa.data.firebase.dto.MenuDocument
+import android.util.Log
 import com.appventure.la.casa.data.firebase.dto.PizzaDto
 import com.appventure.la.casa.data.firebase.dto.PizzaSizeDto
 import com.appventure.la.casa.data.firebase.dto.ToppingDto
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
 import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.decodeFromJsonElement
 
 class MenuRemoteDataSource(
     private val firestore: FirebaseFirestore,
-    private val json: Json = Json { ignoreUnknownKeys = true }
 ) {
+    suspend fun getPizzaMenu(): List<PizzaDto> {
+        return try {
+            val snapshot = firestore
+                .collection("pizza")          // <-- or "menus/pizzas_v1"
+                .get()
+                .await()                       // makes the call suspend
 
-    suspend fun getMenuVersion(): Int =
-        firestore.document("menus/v1").get().await()
-            .getLong("version")?.toInt() ?: 0
+            snapshot.map { it.toObject(PizzaDto::class.java) }
+        } catch (e: Exception) {
+            Log.d("menu", "Error getting documents: ", e)
+            emptyList()                        // or `throw e` if you want caller to handle it
+        }
+}
+    suspend fun getPizzaSizes(): List<PizzaSizeDto> {
+        return try {
+            val snapshot = firestore
+                .collection("pizza_sizes")          // <-- or "menus/pizzas_v1"
+                .get()
+                .await()                       // makes the call suspend
 
-    suspend fun fetchMenuTriple(): Triple<List<ToppingDto>, List<PizzaDto>, List<PizzaSizeDto>> {
-        val snap = firestore.document("menus/v1").get().await()
-        val doc = json.decodeFromString<MenuDocument>(snap.getString("data")!!)
+            snapshot.map { it.toObject(PizzaSizeDto::class.java) }
+        } catch (e: Exception) {
+            Log.d("menu", "Error getting documents: ", e)
+            emptyList()                        // or `throw e` if you want caller to handle it
+        }
+}
+    suspend fun getToppings(): List<ToppingDto> {
+        return try {
+            val snapshot = firestore
+                .collection("toppings")          // <-- or "menus/pizzas_v1"
+                .get()
+                .await()                       // makes the call suspend
 
-        val list = doc.data
-        val toppings = list.filter { it.containsKey("price") }
-            .map { json.decodeFromJsonElement<ToppingDto>(it) }
-        val pizzas = list.filter { it.containsKey("basePrice") }
-            .map { json.decodeFromJsonElement<PizzaDto>(it) }
-        val sizes = list.filter { it.containsKey("pizzaId") }
-            .map { json.decodeFromJsonElement<PizzaSizeDto>(it) }
+            snapshot.map { it.toObject(ToppingDto::class.java) }
+        } catch (e: Exception) {
+            Log.d("menu", "Error getting documents: ", e)
+            emptyList()                        // or `throw e` if you want caller to handle it
+        }
+}
 
-        return Triple(toppings, pizzas, sizes)
-    }
 }
