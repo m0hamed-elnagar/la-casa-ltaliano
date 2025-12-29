@@ -5,10 +5,9 @@ import com.appventure.la.casa.data.firebase.MenuRemoteDataSource
 import com.appventure.la.casa.data.repositoryImpl.FavPizzaRepositoryImpl
 import com.appventure.la.casa.data.room.LaCasaDatabase
 import com.appventure.la.casa.domain.repo.FavPizzaRepository
-import com.appventure.la.casa.domain.usecases.favPizza.FavPizzaActionsUseCase
-import com.appventure.la.casa.domain.usecases.favPizza.GetAllFavPizzasUseCase
-import com.appventure.la.casa.domain.usecases.favPizza.GetFavPizzaByIdUseCase
-import com.appventure.la.casa.domain.usecases.favPizza.GetFavPizzasForPizzaUseCase
+import com.appventure.la.casa.domain.use_cases.favPizza.FavPizzaActionsUseCase
+import com.appventure.la.casa.domain.use_cases.favPizza.GetFavPizzaByIdUseCase
+import com.appventure.la.casa.domain.use_cases.favPizza.GetFavPizzasForPizzaUseCase
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import kotlinx.serialization.json.Json
