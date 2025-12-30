@@ -6,6 +6,7 @@ import com.appventure.la.casa.domain.models.FavPizza
 fun FavPizzaEntity.toDomain(): FavPizza {
     return FavPizza(
         id = id,
+        userId = userId,
         pizzaId = pizzaId,
         userId = userId,
         toppings = toppings,
@@ -13,6 +14,7 @@ fun FavPizzaEntity.toDomain(): FavPizza {
         lastUpdated = lastUpdated
     )
 }
+
 fun FavPizza.toEntity(): FavPizzaEntity {
     return FavPizzaEntity(
         id = id,
