@@ -8,7 +8,6 @@ fun FavPizzaEntity.toDomain(): FavPizza {
         id = id,
         userId = userId,
         pizzaId = pizzaId,
-        userId = userId,
         toppings = toppings,
         size = size,
         lastUpdated = lastUpdated
