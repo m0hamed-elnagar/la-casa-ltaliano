@@ -1,34 +1,33 @@
 package com.appventure.la.casa.ui.screens
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.appventure.la.casa.ui.components.home_screen.BannerSection
-import com.appventure.la.casa.ui.components.home_screen.BottomAppBar
 import com.appventure.la.casa.ui.components.home_screen.CategoriesSection
 import com.appventure.la.casa.ui.components.home_screen.PopularSection
 import com.appventure.la.casa.ui.components.home_screen.TopBarApp
-import com.appventure.la.casa.ui.theme.*
+import com.appventure.la.casa.ui.theme.BackgroundLight
 
 
 // --- (Data Models) ---
 data class Category(val name: String, val icon: ImageVector, val isSelected: Boolean = false)
 data class PizzaItem(val name: String, val description: String, val price: Double, val rating: Double, val image: String)
-data class BannerItem(val badge: String, val title: String, val buttonTitle: String?=null, val image: String)
-
+data class BannerItem(val badge: String, val title: String, val buttonTitle: String? = null, val image: String)
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavController) {
     Scaffold(
         modifier = Modifier.padding(top = 20.dp, start = 8.dp, end = 8.dp),
         containerColor = BackgroundLight,
-        topBar = { TopBarApp()},
-        bottomBar = { BottomAppBar() }
+        topBar = { TopBarApp( {navController.navigate("profile")}, {navController.navigate("notification")}) },
     ) { paddingValues ->
         LazyColumn(
             modifier = Modifier
@@ -36,7 +35,6 @@ fun HomeScreen() {
                 .padding(paddingValues),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
-
             // Banner Section (Build Your Own & Limited Offer)
             item { BannerSection() }
 
@@ -49,8 +47,8 @@ fun HomeScreen() {
     }
 }
 
-@Preview(showBackground = true, widthDp = 360)
-@Composable
-fun AppPreview() {
-    HomeScreen()
-}
+////@Preview(showBackground = true, widthDp = 360)
+//@Composable
+//fun AppPreview() {
+//    RoutesManger()
+//}

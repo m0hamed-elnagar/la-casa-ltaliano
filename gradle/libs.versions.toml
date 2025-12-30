@@ -19,6 +19,7 @@ room = "2.8.4"
 ksp = "2.2.21-2.0.4"
 splashScreen = "1.2.0"
 navigation3 = "1.1.0-alpha01"
+runtimeAnnotation = "1.10.0"
 
 
 [libraries]
@@ -86,7 +87,8 @@ firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashly
 firebase-config = { group = "com.google.firebase", name = "firebase-config"}
 firebase-storage-ktx = { group = "com.google.firebase", name = "firebase-storage"}
 firebase-firestore-ktx = { group = "com.google.firebase", name = "firebase-firestore"}
-firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging" } #for fcm
+firebase-messaging = { group = "com.google.firebase", name = "firebase-messaging" }
+androidx-compose-runtime-annotation = { group = "androidx.compose.runtime", name = "runtime-annotation", version.ref = "runtimeAnnotation" } #for fcm
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
