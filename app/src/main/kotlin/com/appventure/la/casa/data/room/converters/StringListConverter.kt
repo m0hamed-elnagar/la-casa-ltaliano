@@ -1,4 +1,4 @@
-package com.appventure.la.casa.data.room
+package com.appventure.la.casa.data.room.converters
 
 import androidx.room.TypeConverter
 

@@ -4,6 +4,7 @@ import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.Relation
+import java.time.Instant
 
 /* ====== Pizza ====== */
 @Entity(tableName = "pizzas")
@@ -12,6 +13,10 @@ data class PizzaEntity(
     val name: String,
     val description: String,
     val category: String,
+    val rating: Int = 0,
+    val offerTitle: String = "",
+    val haveBtn: Boolean = true,
+    val offerPercentage: Int = 0,
     val basePrice: Int,      // cents for size M
     val imageUrl: String,
     val defaultToppings: List<String>,   // ToppingId
@@ -19,7 +24,7 @@ data class PizzaEntity(
     val priority: Int,
     val isFeatured: Boolean,
     val isAvailable: Boolean,
-    val lastUpdated: Long
+    val lastUpdated: Instant
 )
 @Entity(
     tableName = "pizza_sizes",

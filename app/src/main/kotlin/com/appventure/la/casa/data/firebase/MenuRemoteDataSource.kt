@@ -14,7 +14,7 @@ class MenuRemoteDataSource(
     suspend fun getPizzaMenu(): List<PizzaDto> {
         return try {
             val snapshot = firestore
-                .collection("pizza")          // <-- or "menus/pizzas_v1"
+                .collection("pizza_menu")          // <-- or "menus/pizzas_v1"
                 .get()
                 .await()                       // makes the call suspend
 
