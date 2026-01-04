@@ -6,21 +6,26 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.rounded.KeyboardArrowRight
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
@@ -34,7 +39,7 @@ import com.appventure.la.casa.ui.theme.PrimaryRed
 @Composable
 fun BannerSection(banners: List<BannerItem>) {
     LazyRow(
-        contentPadding = PaddingValues(horizontal = 8.dp),
+        contentPadding = PaddingValues(horizontal = 8.dp, vertical = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(banners) { banner ->
@@ -42,15 +47,15 @@ fun BannerSection(banners: List<BannerItem>) {
         }
     }
 }
-
 @Composable
-fun BannerCard(banner: BannerItem) {
+private fun BannerCard(banner: BannerItem) {
     Card(
         shape = RoundedCornerShape(20.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .height(160.dp)
+            .height(200.dp)
+            .width(330.dp)
     ) {
         Box {
             AsyncImage(
@@ -63,40 +68,42 @@ fun BannerCard(banner: BannerItem) {
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(160.dp)
+                    .height(200.dp)
                     .background(
                         brush = Brush.horizontalGradient(
                             colors = listOf(
-                                Color.Black.copy(alpha = 0.7f),
-                                Color.Black.copy(alpha = 0.1f),
+                                Color.Black.copy(alpha = 0.9f),
+                                Color.Black.copy(alpha = 0.8f),
                                 Color.Transparent
                             ),
                             startX = 0f,
-                            endX = 500f
+                            endX = 600f
                         )
                     )
             )
             Column(
                 modifier = Modifier
-                    .align(Alignment.CenterStart)
-                    .padding(20.dp)
+                    .align(Alignment.TopStart)
+                    .padding(16.dp)
                     .fillMaxWidth(0.6f)
+                    .fillMaxHeight(),
+                verticalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
                     text = banner.badge,
-                    color = Color.White.copy(alpha = 0.8f),
+                    color = Color.White,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.SemiBold,
                     modifier = Modifier
-                        .background(PrimaryRed.copy(alpha = 0.5f), RoundedCornerShape(6.dp))
-                        .padding(horizontal = 6.dp, vertical = 2.dp)
+                        .background(PrimaryRed.copy(alpha = 0.5f), RoundedCornerShape(8.dp))
+                        .padding(horizontal = 8.dp, vertical = 4.dp)
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
                     text = banner.title,
                     color = Color.White,
-                    fontSize = 18.sp,
-                    lineHeight = 22.sp,
+                    fontSize = 20.sp,
+                    lineHeight = 24.sp,
                     fontWeight = FontWeight.Bold
                 )
                 banner.buttonTitle?.let {
@@ -104,12 +111,15 @@ fun BannerCard(banner: BannerItem) {
                     Button(
                         onClick = { /* TODO */ },
                         colors = ButtonDefaults.buttonColors(containerColor = PrimaryRed),
-                        shape = RoundedCornerShape(12.dp),
+                        shape = RoundedCornerShape(25.dp),
                         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                     ) {
-                        Text(it, fontSize = 12.sp, fontWeight = FontWeight.SemiBold)
+                        Text(it, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+                        Spacer(modifier = Modifier.width(0.dp))
+                        Icon(Icons.AutoMirrored.Rounded.KeyboardArrowRight, null, tint = Color.White)
                     }
-                }
+                }?: Spacer(modifier = Modifier.height(32.dp))
+
             }
         }
     }

@@ -8,7 +8,9 @@ import com.appventure.la.casa.domain.usecases.favPizza.FavPizzaActionsUseCase
 import com.appventure.la.casa.domain.usecases.favPizza.GetAllFavPizzasUseCase
 import com.appventure.la.casa.domain.usecases.favPizza.GetFavPizzaByIdUseCase
 import com.appventure.la.casa.domain.usecases.favPizza.GetFavPizzasForPizzaUseCase
+import com.appventure.la.casa.ui.screens.HomeViewModel
 import org.koin.core.module.dsl.singleOf
+import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -29,4 +31,5 @@ val sharedModule = module {
     singleOf(::GetFavPizzasForPizzaUseCase)
     singleOf(::GetFavPizzaByIdUseCase)
     singleOf(::GetFavPizzaByIdUseCase)
+    viewModelOf(::HomeViewModel)
 }

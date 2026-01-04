@@ -33,7 +33,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
 import com.appventure.la.casa.R
-import com.appventure.la.casa.ui.screens.profile_screen.AppColor
 import com.appventure.la.casa.ui.theme.PrimaryRed
 import com.appventure.la.casa.ui.theme.SecondaryDark
 import com.appventure.la.casa.ui.theme.TextDark
@@ -61,7 +60,7 @@ fun TopBarApp(
                     modifier = Modifier
                         .size(50.dp)
                         .clip(CircleShape)
-                        .border(1.dp, AppColor.Primary.copy(alpha = .1f), CircleShape),
+                        .border(1.dp, PrimaryRed.copy(alpha = .1f), CircleShape),
                     contentScale = ContentScale.Crop
                 )
             }

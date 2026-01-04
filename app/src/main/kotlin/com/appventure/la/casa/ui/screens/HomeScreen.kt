@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import com.appventure.la.casa.ui.components.home_screen.BannerSection
 import com.appventure.la.casa.ui.components.home_screen.CategoriesSection
@@ -22,29 +21,30 @@ import com.appventure.la.casa.ui.components.home_screen.PopularSection
 import com.appventure.la.casa.ui.components.home_screen.TopBarApp
 //import com.appventure.la.casa.ui.screens.profile_screen.ProfileScreen
 import com.appventure.la.casa.ui.theme.BackgroundLight
+import org.koin.compose.viewmodel.koinViewModel
 
 
-/*
 // --- (Data Models) ---
 data class Category(val name: String, val icon: ImageVector, val isSelected: Boolean = false)
 data class PizzaItem(val name: String, val description: String, val price: Double, val rating: Double, val image: String)
 data class BannerItem(val badge: String, val title: String, val buttonTitle: String? = null, val image: String)
-*/
 
 @Composable
 fun HomeScreen(
-    navController: NavController,
-    viewModel: HomeViewModel = viewModel()
+    onProfileClick: () -> Unit,
+    onNotificationsClick: () -> Unit,
+    viewModel: HomeViewModel = koinViewModel()
 ) {
     val uiState by viewModel.uiState.collectAsState()
+
 
     Scaffold(
         modifier = Modifier.padding(top = 20.dp, start = 8.dp, end = 8.dp),
         containerColor = BackgroundLight,
         topBar = {
             TopBarApp(
-                onProfileClick = { navController.navigate("profile") },
-                onNotificationsClick = { navController.navigate("notifications") }
+                onProfileClick = onProfileClick,
+                onNotificationsClick = onNotificationsClick
             )
         },
     ) { paddingValues ->
