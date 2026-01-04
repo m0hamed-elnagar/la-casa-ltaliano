@@ -1,4 +1,4 @@
-package com.appventure.la.casa.ui.components.home_screen
+package com.appventure.la.casa.ui.screens.home_screen.components
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable

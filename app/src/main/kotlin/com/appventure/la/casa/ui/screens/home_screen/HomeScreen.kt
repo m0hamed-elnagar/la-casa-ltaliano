@@ -1,4 +1,4 @@
-package com.appventure.la.casa.ui.screens
+package com.appventure.la.casa.ui.screens.home_screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,11 +14,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import com.appventure.la.casa.ui.components.home_screen.BannerSection
-import com.appventure.la.casa.ui.components.home_screen.CategoriesSection
-import com.appventure.la.casa.ui.components.home_screen.PopularSection
-import com.appventure.la.casa.ui.components.home_screen.TopBarApp
+import com.appventure.la.casa.ui.screens.home_screen.components.BannerSection
+import com.appventure.la.casa.ui.screens.home_screen.components.CategoriesSection
+import com.appventure.la.casa.ui.screens.home_screen.components.PopularSection
+import com.appventure.la.casa.ui.screens.home_screen.components.TopBarApp
 //import com.appventure.la.casa.ui.screens.profile_screen.ProfileScreen
 import com.appventure.la.casa.ui.theme.BackgroundLight
 import org.koin.compose.viewmodel.koinViewModel

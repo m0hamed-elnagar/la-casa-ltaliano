@@ -5,10 +5,9 @@ import com.appventure.la.casa.data.repositoryImpl.FavPizzaRepositoryImpl
 import com.appventure.la.casa.data.room.LaCasaDatabase
 import com.appventure.la.casa.domain.repo.FavPizzaRepository
 import com.appventure.la.casa.domain.usecases.favPizza.FavPizzaActionsUseCase
-import com.appventure.la.casa.domain.usecases.favPizza.GetAllFavPizzasUseCase
 import com.appventure.la.casa.domain.usecases.favPizza.GetFavPizzaByIdUseCase
 import com.appventure.la.casa.domain.usecases.favPizza.GetFavPizzasForPizzaUseCase
-import com.appventure.la.casa.ui.screens.HomeViewModel
+import com.appventure.la.casa.ui.screens.home_screen.HomeViewModel
 import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.bind

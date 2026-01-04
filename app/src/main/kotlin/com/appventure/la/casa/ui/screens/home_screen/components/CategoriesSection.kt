@@ -1,4 +1,4 @@
-package com.appventure.la.casa.ui.components.home_screen
+package com.appventure.la.casa.ui.screens.home_screen.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -26,7 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.appventure.la.casa.ui.screens.Category
+import com.appventure.la.casa.ui.screens.home_screen.Category
 import com.appventure.la.casa.ui.theme.PrimaryRed
 import com.appventure.la.casa.ui.theme.TextDark
 

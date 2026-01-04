@@ -1,4 +1,4 @@
-package com.appventure.la.casa.ui.components.home_screen
+package com.appventure.la.casa.ui.screens.home_screen.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -35,7 +35,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import com.appventure.la.casa.ui.screens.PizzaItem
+import com.appventure.la.casa.ui.screens.home_screen.PizzaItem
 import com.appventure.la.casa.ui.theme.PrimaryRed
 import com.appventure.la.casa.ui.theme.TextDark
 import com.appventure.la.casa.ui.theme.TextGrey

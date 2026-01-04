@@ -1,4 +1,4 @@
-package com.appventure.la.casa.ui.components.home_screen
+package com.appventure.la.casa.ui.screens.home_screen.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -23,7 +23,6 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.Immutable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -33,11 +32,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import com.appventure.la.casa.ui.screens.BannerItem
+import com.appventure.la.casa.ui.screens.home_screen.PizzaDto
 import com.appventure.la.casa.ui.theme.PrimaryRed
 
 @Composable
-fun BannerSection(banners: List<BannerItem>) {
+fun BannerSection(banners: List<PizzaDto>) {
     LazyRow(
         contentPadding = PaddingValues(horizontal = 8.dp, vertical = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -48,7 +47,7 @@ fun BannerSection(banners: List<BannerItem>) {
     }
 }
 @Composable
-private fun BannerCard(banner: BannerItem) {
+private fun BannerCard(banner: PizzaDto) {
     Card(
         shape = RoundedCornerShape(20.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
@@ -59,8 +58,8 @@ private fun BannerCard(banner: BannerItem) {
     ) {
         Box {
             AsyncImage(
-                model = banner.image,
-                contentDescription = banner.title,
+                model = banner.imageUrl,
+                contentDescription = banner.description,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxWidth()
             )
@@ -90,7 +89,7 @@ private fun BannerCard(banner: BannerItem) {
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = banner.badge,
+                    text = banner.name,
                     color = Color.White,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.SemiBold,
@@ -100,13 +99,13 @@ private fun BannerCard(banner: BannerItem) {
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = banner.title,
+                    text = banner.offerTitle,
                     color = Color.White,
                     fontSize = 20.sp,
                     lineHeight = 24.sp,
                     fontWeight = FontWeight.Bold
                 )
-                banner.buttonTitle?.let {
+                if (banner.haveBtn) {
                     Spacer(modifier = Modifier.height(12.dp))
                     Button(
                         onClick = { /* TODO */ },
@@ -114,11 +113,21 @@ private fun BannerCard(banner: BannerItem) {
                         shape = RoundedCornerShape(25.dp),
                         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                     ) {
-                        Text(it, fontSize = 14.sp, fontWeight = FontWeight.SemiBold)
+                        Text(
+                            text = banner.category,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.SemiBold
+                        )
                         Spacer(modifier = Modifier.width(0.dp))
-                        Icon(Icons.AutoMirrored.Rounded.KeyboardArrowRight, null, tint = Color.White)
+                        Icon(
+                            Icons.AutoMirrored.Rounded.KeyboardArrowRight,
+                            null,
+                            tint = Color.White
+                        )
                     }
-                }?: Spacer(modifier = Modifier.height(32.dp))
+                }else{
+                    Spacer(modifier = Modifier.height(36.dp))
+                }
 
             }
         }
