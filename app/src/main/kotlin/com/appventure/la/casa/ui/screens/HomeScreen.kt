@@ -16,7 +16,6 @@ import com.appventure.la.casa.ui.components.home_screen.CategoriesSection
 import com.appventure.la.casa.ui.components.home_screen.PopularSection
 import com.appventure.la.casa.ui.components.home_screen.TopBarApp
 import com.appventure.la.casa.ui.theme.BackgroundLight
-import org.koin.compose.viewmodel.koinViewModel
 
 
 // --- (Data Models) ---
@@ -27,7 +26,6 @@ data class BannerItem(val badge: String, val title: String, val buttonTitle: Str
 
 @Composable
 fun HomeScreen(
-    viewModel: HomeVM = koinViewModel()
 
 
 ) {

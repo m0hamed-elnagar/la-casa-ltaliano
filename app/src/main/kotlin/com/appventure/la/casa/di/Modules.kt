@@ -3,6 +3,7 @@ package com.appventure.la.casa.di
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.room.Room
+import com.appventure.la.casa.app.MainActivityViewModel
 import com.appventure.la.casa.data.firebase.MenuRemoteDataSource
 import com.appventure.la.casa.data.local.datastore.AppPreferences
 import com.appventure.la.casa.data.local.datastore.dataStore
@@ -19,7 +20,6 @@ import com.appventure.la.casa.domain.use_cases.favPizza.GetFavPizzasForPizzaUseC
 import com.appventure.la.casa.domain.use_cases.pizza.ObservePizzaUseCase
 import com.appventure.la.casa.domain.use_cases.sync.ObserveTargetUseCase
 import com.appventure.la.casa.domain.use_cases.sync.SyncTargetIfNeededUseCase
-import com.appventure.la.casa.ui.screens.HomeVM
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
 import kotlinx.serialization.json.Json
@@ -64,7 +64,7 @@ val sharedModule = module {
     singleOf(::SyncTargetIfNeededUseCase)
     singleOf(::ObservePizzaUseCase)
     singleOf(::ObserveTargetUseCase)
-    viewModelOf(::HomeVM)
+    viewModelOf(::MainActivityViewModel)
 
     single { Firebase.firestore }
     single { Json { ignoreUnknownKeys = true } }

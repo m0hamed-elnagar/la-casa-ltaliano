@@ -33,8 +33,8 @@ fun PizzaEntity.toDomain(sizeRows: List<PizzaSizeEntity>): Pizza =
         defaultToppings = defaultToppings,
         availableToppings = availableToppings,
         priority = priority,
-        isFeatured = isFeatured,
-        isAvailable = isAvailable
+        homeVisible = homeVisible,
+        available = available
     )
 
 fun PizzaWithSizes.toDomain(): Pizza =
@@ -56,8 +56,8 @@ fun Pizza.toPizzaEntity(): PizzaEntity =
         defaultToppings = defaultToppings,
         availableToppings = availableToppings,
         priority = priority,
-        isFeatured = isFeatured,
-        isAvailable = isAvailable,
+        homeVisible = homeVisible,
+        available = available,
         lastUpdated = Instant.now()
     )
 
@@ -84,8 +84,8 @@ fun PizzaDto.toPizzaEntity(): PizzaEntity =
         defaultToppings = defaultToppings,
         availableToppings = availableToppings,
         priority = priority.toInt(),
-        isFeatured = homeVisible,
-        isAvailable = available,
+        homeVisible = homeVisible,
+        available = available,
          lastUpdated = lastUpdated?.toInstant() ?: Instant.EPOCH
 
     )

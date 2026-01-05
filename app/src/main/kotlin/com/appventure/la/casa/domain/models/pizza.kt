@@ -15,8 +15,8 @@ data class Pizza(
     val defaultToppings: List<ToppingId>,
     val availableToppings: List<ToppingId> = emptyList(),
     val priority: Int,
-    val isFeatured: Boolean,
-    val isAvailable: Boolean
+    val homeVisible: Boolean,
+    val available: Boolean
 )
 enum class PizzaCategory {
     CLASSIC, SPECIAL, VEGAN, SPICY

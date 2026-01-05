@@ -1,4 +1,4 @@
-package com.appventure.la.casa.ui.screens
+package com.appventure.la.casa.app
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -16,26 +16,26 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
-class HomeVM(
+class MainActivityViewModel (
     private val syncUseCase: SyncTargetIfNeededUseCase,
-    private val observePizzasUseCase: ObserveTargetUseCase,
-    private val appPreferences: AppPreferences
+private val observePizzasUseCase: ObserveTargetUseCase,
+private val appPreferences: AppPreferences
 ) : ViewModel() {
 
     init {
         // Trigger the syncIfNeeded (fire-and-forget)
         viewModelScope.launch {
-                RemoteConfigManager.pizzaVersionRemote
-                    .filterNotNull()
-                    .distinctUntilChanged()
-                    .collect { remoteVersion ->
-                        val localVersion = appPreferences.pizzaVersion.first()
-                        if (localVersion == 0L || localVersion < remoteVersion) {
-                            syncUseCase(SyncTarget.PIZZAS, remoteVersion)
-                        } else {
-                            Log.d("HomeVM", "Versions match ($localVersion), nothing to do.")
-                        }
+            RemoteConfigManager.pizzaVersionRemote
+                .filterNotNull()
+                .distinctUntilChanged()
+                .collect { remoteVersion ->
+                    val localVersion = appPreferences.pizzaVersion.first()
+                    if (localVersion == 0L || localVersion < remoteVersion) {
+                        syncUseCase(SyncTarget.PIZZAS, remoteVersion)
+                    } else {
+                        Log.d("HomeVM", "Versions match ($localVersion), nothing to do.")
                     }
+                }
 
 
 //            syncUseCase(SyncTarget.PIZZAS)
