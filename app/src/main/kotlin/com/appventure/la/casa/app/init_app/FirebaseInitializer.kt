@@ -1,7 +1,7 @@
 package com.appventure.la.casa.app.init_app
 
 import android.app.Application
-import com.appventure.la.casa.BuildConfig
+import com.google.firebase.BuildConfig
 import com.google.firebase.Firebase
 import com.google.firebase.FirebaseApp
 import com.google.firebase.analytics.FirebaseAnalytics
