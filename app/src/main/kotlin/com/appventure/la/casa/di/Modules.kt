@@ -18,7 +18,7 @@ import com.appventure.la.casa.domain.use_cases.favPizza.GetFavPizzaByIdUseCase
 import com.appventure.la.casa.domain.use_cases.favPizza.GetFavPizzasForPizzaUseCase
 import com.appventure.la.casa.domain.use_cases.pizza.ObservePizzaUseCase
 import com.appventure.la.casa.domain.use_cases.sync.ObserveTargetUseCase
-import com.appventure.la.casa.domain.use_cases.sync.SyncTargetUseCase
+import com.appventure.la.casa.domain.use_cases.sync.SyncTargetIfNeededUseCase
 import com.appventure.la.casa.ui.screens.HomeVM
 import com.google.firebase.Firebase
 import com.google.firebase.firestore.firestore
@@ -61,10 +61,10 @@ val sharedModule = module {
     singleOf(::GetFavPizzaByIdUseCase)
     singleOf(::GetFavPizzaByIdUseCase)
     singleOf(::MenuRemoteDataSource)
-    singleOf(::SyncTargetUseCase)
+    singleOf(::SyncTargetIfNeededUseCase)
     singleOf(::ObservePizzaUseCase)
     singleOf(::ObserveTargetUseCase)
-//    viewModelOf(::HomeVM)
+    viewModelOf(::HomeVM)
 
     single { Firebase.firestore }
     single { Json { ignoreUnknownKeys = true } }

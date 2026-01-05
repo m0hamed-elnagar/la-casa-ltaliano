@@ -18,7 +18,7 @@ data class PizzaDto(
     val defaultToppings: List<String> = emptyList(),
     val availableToppings: List<String> = emptyList(),
     val priority: Long = 0,
-    val featured: Boolean = false,
+    val homeVisible: Boolean = false,
     val available: Boolean = true,
     @ServerTimestamp
     val lastUpdated: Timestamp? = null   // Firestore writes the server time

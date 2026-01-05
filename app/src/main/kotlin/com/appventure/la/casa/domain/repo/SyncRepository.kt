@@ -5,6 +5,6 @@ import com.appventure.la.casa.domain.models.SyncTarget
 import kotlinx.coroutines.flow.Flow
 
 interface SyncRepository {
-    suspend fun sync(target: SyncTarget)
+    suspend fun syncIfNeeded(target: SyncTarget, remoteVersion: Long)
     fun observe(target: SyncTarget): Flow<SyncState>
 }

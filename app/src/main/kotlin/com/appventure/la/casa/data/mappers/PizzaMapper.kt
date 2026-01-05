@@ -84,7 +84,7 @@ fun PizzaDto.toPizzaEntity(): PizzaEntity =
         defaultToppings = defaultToppings,
         availableToppings = availableToppings,
         priority = priority.toInt(),
-        isFeatured = featured,
+        isFeatured = homeVisible,
         isAvailable = available,
          lastUpdated = lastUpdated?.toInstant() ?: Instant.EPOCH
 
