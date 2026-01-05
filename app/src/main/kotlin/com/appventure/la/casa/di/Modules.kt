@@ -1,6 +1,7 @@
 package com.appventure.la.casa.di
 
 import androidx.room.Room
+import com.appventure.la.casa.data.firebase.MenuRemoteDataSource
 import com.appventure.la.casa.data.repositoryImpl.FavPizzaRepositoryImpl
 import com.appventure.la.casa.data.room.LaCasaDatabase
 import com.appventure.la.casa.domain.repo.FavPizzaRepository
@@ -8,6 +9,9 @@ import com.appventure.la.casa.domain.usecases.favPizza.FavPizzaActionsUseCase
 import com.appventure.la.casa.domain.usecases.favPizza.GetFavPizzaByIdUseCase
 import com.appventure.la.casa.domain.usecases.favPizza.GetFavPizzasForPizzaUseCase
 import com.appventure.la.casa.ui.screens.home_screen.HomeViewModel
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
+import kotlinx.serialization.json.Json
 import org.koin.core.module.dsl.singleOf
 import org.koin.core.module.dsl.viewModelOf
 import org.koin.dsl.bind
@@ -25,10 +29,18 @@ val sharedModule = module {
     singleOf(::FavPizzaRepositoryImpl)
         .bind<FavPizzaRepository>()
     single { get<LaCasaDatabase>().favPizzaDao }
+    singleOf(::PizzaRepositoryImpl)
+        .bind<PizzaRepository>()
+    single { get<LaCasaDatabase>().pizzaDao }
     //useCases for fav pizzas
     singleOf(::FavPizzaActionsUseCase)
     singleOf(::GetFavPizzasForPizzaUseCase)
     singleOf(::GetFavPizzaByIdUseCase)
     singleOf(::GetFavPizzaByIdUseCase)
     viewModelOf(::HomeViewModel)
+    single { Firebase.firestore }
+    single { Json { ignoreUnknownKeys = true } }
+    singleOf(::MenuRemoteDataSource)
+    singleOf(::SyncPizzaUseCase)
+    singleOf(::ObservePizzaUseCase)
 }
