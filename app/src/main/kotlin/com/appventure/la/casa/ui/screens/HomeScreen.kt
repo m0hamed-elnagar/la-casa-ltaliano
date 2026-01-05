@@ -1,9 +1,11 @@
 package com.appventure.la.casa.ui.screens
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.material3.*
-import androidx.compose.runtime.*
+import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
@@ -13,7 +15,7 @@ import com.appventure.la.casa.ui.components.home_screen.BottomAppBar
 import com.appventure.la.casa.ui.components.home_screen.CategoriesSection
 import com.appventure.la.casa.ui.components.home_screen.PopularSection
 import com.appventure.la.casa.ui.components.home_screen.TopBarApp
-import com.appventure.la.casa.ui.theme.*
+import com.appventure.la.casa.ui.theme.BackgroundLight
 
 
 // --- (Data Models) ---
@@ -23,7 +25,12 @@ data class BannerItem(val badge: String, val title: String, val buttonTitle: Str
 
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(
+
+
+) {
+
+
     Scaffold(
         modifier = Modifier.padding(top = 20.dp, start = 8.dp, end = 8.dp),
         containerColor = BackgroundLight,
