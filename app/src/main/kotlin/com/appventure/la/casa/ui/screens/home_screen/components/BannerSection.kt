@@ -32,11 +32,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import com.appventure.la.casa.ui.screens.home_screen.PizzaDto
+import com.appventure.la.casa.ui.models_ui.Banner
 import com.appventure.la.casa.ui.theme.PrimaryRed
 
 @Composable
-fun BannerSection(banners: List<PizzaDto>) {
+fun BannerSection(banners: List<Banner>) {
     LazyRow(
         contentPadding = PaddingValues(horizontal = 8.dp, vertical = 16.dp),
         horizontalArrangement = Arrangement.spacedBy(16.dp)
@@ -47,7 +47,7 @@ fun BannerSection(banners: List<PizzaDto>) {
     }
 }
 @Composable
-private fun BannerCard(banner: PizzaDto) {
+private fun BannerCard(banner: Banner) {
     Card(
         shape = RoundedCornerShape(20.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
@@ -58,8 +58,8 @@ private fun BannerCard(banner: PizzaDto) {
     ) {
         Box {
             AsyncImage(
-                model = banner.imageUrl,
-                contentDescription = banner.description,
+                model = banner.image,
+                contentDescription = banner.title,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier.fillMaxWidth()
             )
@@ -89,7 +89,7 @@ private fun BannerCard(banner: PizzaDto) {
                 verticalArrangement = Arrangement.SpaceBetween
             ) {
                 Text(
-                    text = banner.name,
+                    text = banner.badge,
                     color = Color.White,
                     fontSize = 12.sp,
                     fontWeight = FontWeight.SemiBold,
@@ -99,13 +99,13 @@ private fun BannerCard(banner: PizzaDto) {
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = banner.offerTitle,
+                    text = banner.title,
                     color = Color.White,
                     fontSize = 20.sp,
                     lineHeight = 24.sp,
                     fontWeight = FontWeight.Bold
                 )
-                if (banner.haveBtn) {
+
                     Spacer(modifier = Modifier.height(12.dp))
                     Button(
                         onClick = { /* TODO */ },
@@ -114,7 +114,7 @@ private fun BannerCard(banner: PizzaDto) {
                         contentPadding = PaddingValues(horizontal = 16.dp, vertical = 8.dp)
                     ) {
                         Text(
-                            text = banner.category,
+                            text = banner.buttonTitle,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.SemiBold
                         )
@@ -125,10 +125,6 @@ private fun BannerCard(banner: PizzaDto) {
                             tint = Color.White
                         )
                     }
-                }else{
-                    Spacer(modifier = Modifier.height(36.dp))
-                }
-
             }
         }
     }

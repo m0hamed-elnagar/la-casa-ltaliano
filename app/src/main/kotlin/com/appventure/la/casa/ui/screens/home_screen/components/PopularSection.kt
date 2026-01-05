@@ -35,14 +35,14 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil3.compose.AsyncImage
-import com.appventure.la.casa.ui.screens.home_screen.PizzaItem
+import com.appventure.la.casa.ui.models_ui.Popular
 import com.appventure.la.casa.ui.theme.PrimaryRed
 import com.appventure.la.casa.ui.theme.TextDark
 import com.appventure.la.casa.ui.theme.TextGrey
 
 
 @Composable
-fun PopularSection(popularItems: List<PizzaItem>) {
+fun PopularSection(popularItems: List<Popular>) {
     Column {
         Row(
             modifier = Modifier
@@ -69,7 +69,7 @@ fun PopularSection(popularItems: List<PizzaItem>) {
 }
 
 @Composable
-fun PopularCard(pizza: PizzaItem) {
+fun PopularCard(pizza: Popular) {
     Card(
         colors = CardDefaults.cardColors(containerColor = Color.White),
         shape = RoundedCornerShape(20.dp),

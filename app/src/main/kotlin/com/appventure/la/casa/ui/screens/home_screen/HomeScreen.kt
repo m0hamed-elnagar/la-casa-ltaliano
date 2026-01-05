@@ -22,12 +22,6 @@ import com.appventure.la.casa.ui.screens.home_screen.components.TopBarApp
 import com.appventure.la.casa.ui.theme.BackgroundLight
 import org.koin.compose.viewmodel.koinViewModel
 
-
-// --- (Data Models) ---
-data class Category(val name: String, val icon: ImageVector, val isSelected: Boolean = false)
-data class PizzaItem(val name: String, val description: String, val price: Double, val rating: Double, val image: String)
-data class BannerItem(val badge: String, val title: String, val buttonTitle: String? = null, val image: String)
-
 @Composable
 fun HomeScreen(
     onProfileClick: () -> Unit,
