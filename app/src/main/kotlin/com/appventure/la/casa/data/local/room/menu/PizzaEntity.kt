@@ -1,4 +1,4 @@
-package com.appventure.la.casa.data.room.menu
+package com.appventure.la.casa.data.local.room.menu
 
 import androidx.room.Embedded
 import androidx.room.Entity

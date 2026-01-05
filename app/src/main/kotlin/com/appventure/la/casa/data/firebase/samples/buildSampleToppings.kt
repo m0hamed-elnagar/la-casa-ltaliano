@@ -3,7 +3,6 @@ package com.appventure.la.casa.data.firebase.samples
 import com.appventure.la.casa.data.firebase.dto.PizzaDto
 import com.appventure.la.casa.data.firebase.dto.PizzaSizeDto
 import com.appventure.la.casa.data.firebase.dto.ToppingDto
-import com.google.firebase.firestore.FirebaseFirestore
 
 /* ==========  SAMPLE TOPPINGS  =========================================== */
 fun buildSampleToppings(): List<ToppingDto> = listOf(
@@ -62,34 +61,34 @@ fun buildSampleToppings(): List<ToppingDto> = listOf(
 /* ==========  SAMPLE SIZES  ============================================= */
 fun buildSampleSizes(): List<PizzaSizeDto> = listOf(
     // Margherita
-    PizzaSizeDto("margherita_classic", "S", 0),
-    PizzaSizeDto("margherita_classic", "M", 200),
-    PizzaSizeDto("margherita_classic", "L", 400),
-    PizzaSizeDto("margherita_classic", "XL", 700),
+    PizzaSizeDto("S", 0),
+    PizzaSizeDto("M", 200),
+    PizzaSizeDto("L", 400),
+    PizzaSizeDto("XL", 700),
 
     // Pepperoni
-    PizzaSizeDto("pepperoni_feast", "S", 0),
-    PizzaSizeDto("pepperoni_feast", "M", 250),
-    PizzaSizeDto("pepperoni_feast", "L", 500),
-    PizzaSizeDto("pepperoni_feast", "XL", 900),
+    PizzaSizeDto("S", 0),
+    PizzaSizeDto("M", 250),
+    PizzaSizeDto("L", 500),
+    PizzaSizeDto("XL", 900),
 
     // Veggie
-    PizzaSizeDto("veggie_delight", "S", 0),
-    PizzaSizeDto("veggie_delight", "M", 200),
-    PizzaSizeDto("veggie_delight", "L", 450),
-    PizzaSizeDto("veggie_delight", "XL", 800),
+    PizzaSizeDto("S", 0),
+    PizzaSizeDto("M", 200),
+    PizzaSizeDto("L", 450),
+    PizzaSizeDto("XL", 800),
 
     // 4-Cheese
-    PizzaSizeDto("four_cheese", "S", 0),
-    PizzaSizeDto("four_cheese", "M", 300),
-    PizzaSizeDto("four_cheese", "L", 600),
-    PizzaSizeDto("four_cheese", "XL", 1000),
+    PizzaSizeDto("S", 0),
+    PizzaSizeDto("M", 300),
+    PizzaSizeDto("L", 600),
+    PizzaSizeDto("XL", 1000),
 
     // Hawaiian
-    PizzaSizeDto("hawaiian", "S", 0),
-    PizzaSizeDto("hawaiian", "M", 200),
-    PizzaSizeDto("hawaiian", "L", 400),
-    PizzaSizeDto("hawaiian", "XL", 750)
+    PizzaSizeDto("S", 0),
+    PizzaSizeDto("M", 200),
+    PizzaSizeDto("L", 400),
+    PizzaSizeDto("XL", 750)
 )
 
 
@@ -97,6 +96,38 @@ fun buildSampleSizes(): List<PizzaSizeDto> = listOf(
  * Builds some sample pizzas.
  */
 fun buildSamplePizzas(): List<PizzaDto> = listOf(
+    PizzaDto(
+        id = "custom_pizza_01",
+        name = "Build Your Own Pizza",
+        description = "Choose your favorite crust and toppings",
+        rating = 5,
+        offerTitle = "Create your perfect pizza from scratch!",
+        offerPercentage = 0,
+        haveBtn = true,
+        category = "Start Building",
+        basePrice = 150,
+        imageUrl = "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=600",
+        defaultToppings = listOf("Tomato sauce", "Mozzarella"),
+        availableToppings = listOf("Bacon", "Pepperoni", "Mushrooms", "Jalapeños", "Extra Cheese"),
+        priority = 1,
+        available = true
+    ) ,
+    PizzaDto(
+        id = "LIMITED OFFER",
+        name = "LIMITED OFFER",
+        description = "Order Now",
+        rating = 0,
+        offerTitle = "50% off on your second pizza!",
+        offerPercentage = 0,
+        haveBtn = true,
+        category = "Classics",
+        basePrice = 999,
+        imageUrl = "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500&auto=format&fit=crop&q=60",
+        defaultToppings = listOf("Tomato sauce", "Mozzarella"),
+        availableToppings = listOf("Bacon", "Cherry tomatoes", "Jalapeños"),
+        priority = 2,
+        available = true
+    ),
     PizzaDto(
         id = "margherita_classic",
         name = "Margherita Classic",
@@ -107,7 +138,7 @@ fun buildSamplePizzas(): List<PizzaDto> = listOf(
         defaultToppings = listOf("Tomato sauce", "Mozzarella", "Basil"),
         availableToppings = listOf("Extra mozzarella", "Cherry tomatoes", "Garlic"),
         priority = 10,
-        isFeatured = true
+        featured = true
     ),
     PizzaDto(
         id = "pepperoni_feast",
@@ -127,9 +158,25 @@ fun buildSamplePizzas(): List<PizzaDto> = listOf(
         category = "Vegetarian",
         basePrice = 1050,
         imageUrl = "https://example.com/images/veggie.jpg",
-        defaultToppings = listOf("Tomato sauce", "Mozzarella", "Zucchini", "Bell peppers", "Red onion", "Olives"),
+        defaultToppings = listOf(
+            "Tomato sauce",
+            "Mozzarella",
+            "Zucchini",
+            "Bell peppers",
+            "Red onion",
+            "Olives"
+        ),
         availableToppings = listOf("Feta", "Artichoke", "Spinach"),
-        priority = 8
+        priority = 8,
+        rating = 3,
+        offerTitle = "Special offer",
+        haveBtn = false,
+        offerPercentage = 20,
+        sizes = listOf(
+            PizzaSizeDto("S", 20),
+            PizzaSizeDto("M", 25)),
+        featured = false,
+        available = true,
     ),
     PizzaDto(
         id = "four_cheese",
@@ -141,7 +188,7 @@ fun buildSamplePizzas(): List<PizzaDto> = listOf(
         defaultToppings = listOf("White sauce", "Mozzarella", "Gorgonzola", "Parmesan", "Provolone"),
         availableToppings = listOf("Truffle oil", "Walnuts", "Arugula"),
         priority = 7,
-        isFeatured = true
+        featured = true
     ),
     PizzaDto(
         id = "hawaiian",
@@ -149,15 +196,20 @@ fun buildSamplePizzas(): List<PizzaDto> = listOf(
         description = "Tomato sauce, mozzarella, ham, pineapple chunks.",
         rating = 4,
         offerTitle = "Special offer",
-        offerPercentage = 20,
         haveBtn = true,
+        offerPercentage = 20,
         category = "Classics",
         basePrice = 999,
+        sizes = listOf(
+            PizzaSizeDto("S", 0),
+            PizzaSizeDto("M", 200)
+        ),
         imageUrl = "https://example.com/images/hawaiian.jpg",
         defaultToppings = listOf("Tomato sauce", "Mozzarella", "Ham", "Pineapple"),
         availableToppings = listOf("Bacon", "Cherry tomatoes", "Jalapeños"),
         priority = 6,
-        isAvailable = true
+        available = true,
+        featured = false
     )
 )
 

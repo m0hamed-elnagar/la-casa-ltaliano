@@ -1,4 +1,4 @@
-package com.appventure.la.casa.data.room.favpizza
+package com.appventure.la.casa.data.local.room.favpizza
 
 import androidx.room.Dao
 import androidx.room.Insert

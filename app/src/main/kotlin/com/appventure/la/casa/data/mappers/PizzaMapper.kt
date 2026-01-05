@@ -2,10 +2,9 @@ package com.appventure.la.casa.data.mappers
 
 
 import com.appventure.la.casa.data.firebase.dto.PizzaDto
-import com.appventure.la.casa.data.firebase.dto.PizzaSizeDto
-import com.appventure.la.casa.data.room.menu.PizzaEntity
-import com.appventure.la.casa.data.room.menu.PizzaSizeEntity
-import com.appventure.la.casa.data.room.menu.PizzaWithSizes
+import com.appventure.la.casa.data.local.room.menu.PizzaEntity
+import com.appventure.la.casa.data.local.room.menu.PizzaSizeEntity
+import com.appventure.la.casa.data.local.room.menu.PizzaWithSizes
 import com.appventure.la.casa.domain.models.Pizza
 import com.appventure.la.casa.domain.models.PizzaCategory
 import com.appventure.la.casa.domain.models.PizzaSize
@@ -85,14 +84,16 @@ fun PizzaDto.toPizzaEntity(): PizzaEntity =
         defaultToppings = defaultToppings,
         availableToppings = availableToppings,
         priority = priority.toInt(),
-        isFeatured = isFeatured,
-        isAvailable = isAvailable,
+        isFeatured = featured,
+        isAvailable = available,
          lastUpdated = lastUpdated?.toInstant() ?: Instant.EPOCH
 
     )
-fun PizzaSizeDto.toPizzaSizeEntity(): PizzaSizeEntity =
-    PizzaSizeEntity(
-        pizzaId = pizzaId,
-        size = size,
-        extraPrice = extraPrice.toInt()
-    )
+fun PizzaDto.toPizzaSizeEntity(): List<PizzaSizeEntity> =
+    sizes.map {
+        PizzaSizeEntity(
+            pizzaId = id,
+            size = it.size,
+            extraPrice = it.extraPrice.toInt()
+        )
+    }
