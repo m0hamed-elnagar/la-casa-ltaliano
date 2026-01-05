@@ -80,6 +80,9 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.work)
+    //workManger
+    implementation(libs.work.manger)
 
     // Firebase
     implementation(platform(libs.firebase.bom))
@@ -98,7 +101,8 @@ dependencies {
     // Coil
     implementation(libs.coil.compose)
     implementation(libs.coil.network.ktor3)
-
+//dataStore
+    implementation(libs.androidx.datastore.preferences)
     // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)

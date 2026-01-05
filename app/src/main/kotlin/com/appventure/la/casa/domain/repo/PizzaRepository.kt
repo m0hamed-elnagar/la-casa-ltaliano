@@ -27,7 +27,7 @@ interface PizzaRepository {
     //write
     suspend fun insertPizzas(pizzaList: List<Pizza>)
     suspend fun insertToppings(toppings: List<Topping>)
-    /* Background sync (pizzas + toppings) */
+    /* Background syncIfNeeded (pizzas + toppings) */
     suspend fun syncPizzas()
 
     suspend fun syncToppings()

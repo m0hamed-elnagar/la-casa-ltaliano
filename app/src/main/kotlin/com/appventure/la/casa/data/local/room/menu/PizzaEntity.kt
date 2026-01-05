@@ -1,4 +1,4 @@
-package com.appventure.la.casa.data.room.menu
+package com.appventure.la.casa.data.local.room.menu
 
 import androidx.room.Embedded
 import androidx.room.Entity
@@ -22,8 +22,8 @@ data class PizzaEntity(
     val defaultToppings: List<String>,   // ToppingId
     val availableToppings: List<String>, // ToppingId
     val priority: Int,
-    val isFeatured: Boolean,
-    val isAvailable: Boolean,
+    val homeVisible: Boolean,
+    val available: Boolean,
     val lastUpdated: Instant
 )
 @Entity(

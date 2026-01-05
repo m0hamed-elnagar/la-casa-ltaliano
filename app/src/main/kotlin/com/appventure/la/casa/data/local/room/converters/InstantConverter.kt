@@ -1,4 +1,4 @@
-package com.appventure.la.casa.data.room.converters
+package com.appventure.la.casa.data.local.room.converters
 
 import androidx.room.TypeConverter
 import java.time.Instant
