@@ -3,7 +3,6 @@ package com.appventure.la.casa.data.firebase
 import android.util.Log
 import com.appventure.la.casa.BuildConfig
 import com.appventure.la.casa.data.firebase.dto.PizzaDto
-import com.appventure.la.casa.data.firebase.dto.PizzaSizeDto
 import com.appventure.la.casa.data.firebase.dto.ToppingDto
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.coroutines.tasks.await
@@ -22,14 +21,6 @@ class MenuRemoteDataSource(
         return snapshot.map { it.toObject(PizzaDto::class.java) }
     }
 
-    suspend fun getPizzaSizes(): List<PizzaSizeDto> {
-        val snapshot = firestore
-            .collection("pizza_sizes")
-            .get()
-            .await()
-
-        return snapshot.map { it.toObject(PizzaSizeDto::class.java) }
-    }
 
     suspend fun getToppings(): List<ToppingDto> {
         val snapshot = firestore

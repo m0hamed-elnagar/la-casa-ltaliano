@@ -37,17 +37,3 @@ fun writeSampleToppingsToFirestore(
             .addOnFailureListener { e -> println("❌ Failed topping ${t.id}: ${e.message}") }
     }
 }
-
-//fun writeSampleSizesToFirestore(
-//    sizes: List<PizzaSizeDto> = buildSampleSizes(),
-//    db: FirebaseFirestore = FirebaseFirestore.getInstance()
-//) {
-//    val col = db.collection("pizza_sizes")
-//    sizes.forEach { s ->
-//        val docId = s.size
-//        col.document(docId)
-//            .set(s)
-//            .addOnSuccessListener { println("✅ Written size: $docId") }
-//            .addOnFailureListener { e -> println("❌ Failed size $docId: ${e.message}") }
-//    }
-//}

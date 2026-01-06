@@ -108,40 +108,6 @@ fun buildSampleToppings(): List<ToppingDto> = listOf(
     )
 )
 
-/* ==========  SAMPLE SIZES  ============================================= */
-fun buildSampleSizes(): List<PizzaSizeDto> = listOf(
-    // Margherita
-    PizzaSizeDto("S", 0),
-    PizzaSizeDto("M", 200),
-    PizzaSizeDto("L", 400),
-    PizzaSizeDto("XL", 700),
-
-    // Pepperoni
-    PizzaSizeDto("S", 0),
-    PizzaSizeDto("M", 250),
-    PizzaSizeDto("L", 500),
-    PizzaSizeDto("XL", 900),
-
-    // Veggie
-    PizzaSizeDto("S", 0),
-    PizzaSizeDto("M", 200),
-    PizzaSizeDto("L", 450),
-    PizzaSizeDto("XL", 800),
-
-    // 4-Cheese
-    PizzaSizeDto("S", 0),
-    PizzaSizeDto("M", 300),
-    PizzaSizeDto("L", 600),
-    PizzaSizeDto("XL", 1000),
-
-    // Hawaiian
-    PizzaSizeDto("S", 0),
-    PizzaSizeDto("M", 200),
-    PizzaSizeDto("L", 400),
-    PizzaSizeDto("XL", 750)
-)
-
-
 /**
  * Builds some sample pizzas.
  */

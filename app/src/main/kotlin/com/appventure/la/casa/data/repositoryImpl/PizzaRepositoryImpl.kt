@@ -2,7 +2,6 @@
 
     import com.appventure.la.casa.data.firebase.MenuRemoteDataSource
 import com.appventure.la.casa.data.firebase.dto.PizzaDto
-import com.appventure.la.casa.data.firebase.dto.PizzaSizeDto
 import com.appventure.la.casa.data.local.room.menu.PizzaDao
 import com.appventure.la.casa.data.local.room.menu.PizzaSizeEntity
 import com.appventure.la.casa.data.mappers.toDomain
@@ -23,10 +22,6 @@ import kotlinx.coroutines.flow.map
 
         override suspend fun downloadPizzas(): List<PizzaDto> {
             return menuRemoteDataSource.getPizzaMenu()
-        }
-
-        override suspend fun downloadPizzaSizes(): List<PizzaSizeDto> {
-            return menuRemoteDataSource.getPizzaSizes()
         }
 
         override fun observePizzas(): Flow<List<Pizza>> {
